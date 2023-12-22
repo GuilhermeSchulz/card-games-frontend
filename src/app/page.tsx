@@ -1,5 +1,14 @@
-import Image from "next/image";
-
+import { Button } from "./components/Button";
 export default function Home() {
-  return <main></main>;
+  // socket.on("judas", (call) => {
+  //   // console.log(socket.callbacks);
+  //   console.log(call);
+  // });
+
+  return (
+    <main>
+      <p>seu id é:</p>
+      <Button />
+    </main>
+  );
 }
