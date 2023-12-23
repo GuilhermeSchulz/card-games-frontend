@@ -16,12 +16,12 @@ export const Button = () => {
   return (
     <>
       {" "}
-      <button onClick={createGame} className="bg-gray-400 p-2 rounded-lg">
+      {/* <button onClick={createGame} className="bg-gray-400 p-2 rounded-lg">
         Encontrar partida
       </button>
       <button onClick={closeGame} className="bg-gray-400 p-2 rounded-lg">
         Encerrar partida
-      </button>
+      </button> */}
     </>
   );
 };

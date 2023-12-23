@@ -1,4 +1,3 @@
-import { Button } from "./components/Button";
 export default function Home() {
   // socket.on("judas", (call) => {
   //   // console.log(socket.callbacks);
@@ -8,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <p>seu id é:</p>
-      <Button />
+      {/* <Button /> */}
     </main>
   );
 }
