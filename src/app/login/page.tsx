@@ -2,12 +2,17 @@
 import "@/app/globals.css";
 import { Form } from "@/components/Form";
 import { Input } from "@/components/Input";
+import { Service } from "@/controller/Service.controller";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import style from "../globals.module.css";
 import "./styles.css";
 import { LoginData, schema } from "./validator";
 export default function Login() {
+  const service = new Service();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -15,7 +20,20 @@ export default function Login() {
   } = useForm<LoginData>({
     resolver: zodResolver(schema),
   });
-  function onLogin() {}
+  async function onLogin(data: LoginData) {
+    const res = await service.login(data);
+    if (res) {
+      toast("Login efetuado com sucesso"),
+        {
+          type: "success",
+        };
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
+    } else {
+      toast("Algo deu errado, verifique email e senha", { type: "error" });
+    }
+  }
   return (
     <main className="bg-blend-multiply bg-[url('/img/background.jpg')] bg-blue-300 h-screen w-full bg-center bg-no-repeat bg-cover flex items-center justify-center">
       <Form onSubmit={handleSubmit(onLogin)}>
