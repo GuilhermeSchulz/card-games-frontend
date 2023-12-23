@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
   --color-red: #e04d3a;
   --color-red-50: #a02a1f;
   --color-red-0: #732828;
@@ -40,13 +37,10 @@
   box-sizing: border-box;
   font-family: var(--font-family);
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--color-gray-800);
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
 }

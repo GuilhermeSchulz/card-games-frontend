@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 0;
+  width: 50%;
+}
+a:hover,
+a:active {
+  color: var(--color-gray-500);
+}
+section {
+  background-color: var(--color-blue-50);
+  width: max-content;
+  padding: 0 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+  color: var(--color-gray-200);
+  position: relative;
+  overflow: hidden;
+}
+.nav_main {
+  width: 25%;
+  outline: 1px solid black;
+}
+.nav_main:hover,
+.nav_main:focus {
+  filter: drop-shadow(2px, 4px, 6px, black);
+  -webkit-filter: drop-shadow(2px, 4px, 6px, black);
+  outline: 2px solid var(--color-gray-800);
+  box-shadow: inset 24px -19px 23px 2px rgba(0, 0, 0, 0.2);
+}

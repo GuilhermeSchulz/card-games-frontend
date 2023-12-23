@@ -1,13 +1,12 @@
-export default function Home() {
-  // socket.on("judas", (call) => {
-  //   // console.log(socket.callbacks);
-  //   console.log(call);
-  // });
+import { Header } from "@/components/Header";
 
+export default function Home() {
   return (
-    <main>
-      <p>seu id é:</p>
-      {/* <Button /> */}
-    </main>
+    <>
+      <Header />
+      <main className="container">
+        <p>seu id é:</p>
+      </main>
+    </>
   );
 }
