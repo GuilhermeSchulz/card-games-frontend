@@ -1,12 +1,12 @@
 import { Header } from "@/components/Header";
+import { PlayGame } from "@/components/PlayGame";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="container">
-        <p>seu id é:</p>
-      </main>
+
+      <PlayGame />
     </>
   );
 }
