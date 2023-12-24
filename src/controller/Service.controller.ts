@@ -8,6 +8,7 @@ export class Service {
   headers = {
     "Content-Type": "application/json; charset=utf-8",
   };
+  token = userStore().token;
   setToken = userStore().setToken;
   cookies = parseCookies();
   async login(loginData: LoginData): Promise<string | undefined> {
@@ -41,6 +42,38 @@ export class Service {
 
       if (res.ok) {
         return res.json();
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getCards() {
+    try {
+      const res = await fetch(`${this.baseURL}cards`, {
+        headers: { Authorization: `Bearer ${this.token}` },
+      });
+      console.log(res);
+      if (res.ok) {
+        const cards = await res.json();
+        return cards;
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async userRetriever() {
+    try {
+      const res = await fetch(`${this.baseURL}user`, {
+        headers: { ...this.headers, Authorization: `Bearer ${this.token}` },
+      });
+      console.log(res);
+      if (res.ok) {
+        const user = await res.json();
+        return user;
       } else {
         return undefined;
       }

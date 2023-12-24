@@ -10,7 +10,6 @@ export const ICardReturn = z.object({
   name: z.string(),
   attack: z.number(),
   defense: z.number(),
-
   image: z.string(),
   id: z.string(),
 });
