@@ -2,7 +2,7 @@ import style from "../app/globals.module.css";
 interface Inputprops {
   label: string;
   register: {};
-  type?: "text" | "password";
+  type?: "text" | "password" | "email";
 }
 
 export function Input({ label, register, type }: Inputprops) {
