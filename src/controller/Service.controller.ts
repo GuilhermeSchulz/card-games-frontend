@@ -1,10 +1,22 @@
 import { LoginData, RegisterData } from "@/interfaces/user.interfaces";
 import { userStore } from "@/store/user.store";
 import { parseCookies } from "nookies";
+import { config } from "../../app.config";
+let endpoint = config.endpoints.producao;
+
+switch (process.env.NODE_ENV) {
+  case "development":
+    endpoint = config.endpoints.developer;
+    break;
+  case "production":
+    endpoint = config.endpoints.producao;
+    break;
+}
 
 export class Service {
   constructor() {}
-  baseURL = "http://localhost:3333/";
+  baseURL = endpoint;
+
   headers = {
     "Content-Type": "application/json; charset=utf-8",
   };
@@ -50,6 +62,7 @@ export class Service {
     }
   }
   async getCards() {
+    console.log(this.baseURL);
     try {
       const res = await fetch(`${this.baseURL}cards`, {
         headers: { Authorization: `Bearer ${this.token}` },

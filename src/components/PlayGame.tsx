@@ -1,19 +1,20 @@
 "use client";
-import { socket } from "@/controller/socket";
+import { emit_attack_start, socket } from "@/controller/socket.controller";
 import { userStore } from "@/store/user.store";
 
 export function PlayGame() {
   const { token } = userStore();
   function createGame() {
-    socket.connect();
-    socket.emit("create-match", token, (data: any) => {
-      console.log(data);
-      return "judas";
-    });
-    socket.on("judas", (arg, callback) => {
-      console.log(arg);
-      return "judas";
-    });
+    // socket.connect();
+    // socket.emit("create-match", token, (data: any) => {
+    //   console.log(data);
+    //   return "judas";
+    // });
+    // socket.on("judas", (arg, callback) => {
+    //   console.log(arg);
+    //   return "judas";
+    // });
+    emit_attack_start({ attack: 123 });
   }
   return (
     <div className="absolute bottom-[100px] flex w-full justify-center">
