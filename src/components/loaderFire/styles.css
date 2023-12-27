@@ -8,6 +8,7 @@
   justify-items: center;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .head {
@@ -37,6 +38,7 @@
   z-index: 2;
   box-shadow: 0 0 1rem #9b8460;
   animation: move 5s alternate infinite;
+  bottom: 16px;
 }
 
 .eye::before {
