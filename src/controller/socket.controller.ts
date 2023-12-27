@@ -11,12 +11,21 @@ socket.on("create-match", (arg, call) => {
 socket.on("all", (arg) => {
   console.log(arg);
 });
+socket.on("matched", (...args) => {
+  console.log(args);
+});
 socket.on("opponent_attack_start", (data) => {
   //store.dispatch(opponent_attack_start(data.data))
+  console.log(data.data);
+});
+socket.on("opponent_change_phase", (data) => {
   console.log(data.data);
 });
 export const emit_attack_start = (info: any) => {
   socket.emit("attack_start", {
     ...info,
   });
+};
+export const emit_change_phase = (info: any) => {
+  socket.emit("change_phase", { ...info });
 };

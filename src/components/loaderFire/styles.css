@@ -13,10 +13,10 @@
 .head {
   width: 100%;
   height: 100%;
-  background-color: #fa95fb;
+  background-color: #e34c06;
   border-radius: 50%;
   animation: move 3s linear infinite;
-  box-shadow: 0 1rem 1rem #e220b8;
+  box-shadow: 0 1rem 1rem #b0720d;
   filter: blur(0.3rem);
   z-index: 1;
 }
@@ -29,13 +29,13 @@
   background-color: #efffc8;
   background: radial-gradient(
     rgba(255, 247, 247, 1) 20%,
-    rgba(255, 170, 197, 1) 100%
+    rgb(198, 177, 13) 100%
   );
   border-radius: 50%;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  box-shadow: 0 0 1rem #f752f7;
+  box-shadow: 0 0 1rem #9b8460;
   animation: move 5s alternate infinite;
 }
 
@@ -47,7 +47,7 @@
   background-color: #000;
   background: radial-gradient(
     rgba(0, 0, 0, 1) 44%,
-    #e220b8 50%,
+    #e34000 50%,
     transparent 60%
   );
   border-radius: 50%;
@@ -63,11 +63,11 @@
 .particle {
   display: flex;
   position: absolute;
-  background-color: #fa95fb;
+  background-color: #fc320a;
   border-radius: 50%;
   filter: blur(0.3rem);
-  border-top: 5px solid #e220b8;
-  border-left: 5px solid #e220b8;
+  border-top: 5px solid #ee8607;
+  border-left: 5px solid #ee6306;
 }
 
 .flames::before {
@@ -75,7 +75,7 @@
   position: absolute;
   width: 8rem;
   height: 8rem;
-  background: #f865d8;
+  background: #f63904;
   filter: blur(5rem);
   opacity: 0.5;
   border-radius: 50%;
