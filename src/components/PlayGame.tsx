@@ -1,10 +1,14 @@
 "use client";
-import { emit_attack_start, socket } from "@/controller/socket.controller";
+import { Service } from "@/controller/Service.controller";
+import { emit_attack_start } from "@/controller/socket.controller";
 import { userStore } from "@/store/user.store";
+import { useRouter } from "next/navigation";
 
 export function PlayGame() {
+  const router = useRouter();
+  const api = new Service();
   const { token } = userStore();
-  function createGame() {
+  async function createGame() {
     // socket.connect();
     // socket.emit("create-match", token, (data: any) => {
     //   console.log(data);
@@ -14,6 +18,14 @@ export function PlayGame() {
     //   console.log(arg);
     //   return "judas";
     // });
+    const res = await api.updateDeck(
+      { name: "judas", cards: [] },
+      "51a0459c-c932-470d-a5d8-90222b7c288c"
+    );
+    console.log(res);
+    if (!res) {
+      router.push("/login");
+    }
     emit_attack_start({ attack: 123 });
   }
   return (

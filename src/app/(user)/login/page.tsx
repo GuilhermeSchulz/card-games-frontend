@@ -23,7 +23,7 @@ export default function Login() {
   async function onLogin(data: LoginData) {
     const res = await service.login(data);
     if (res) {
-      toast("Login efetuado com sucesso"),
+      toast.success("Login efetuado com sucesso"),
         {
           type: "success",
         };
@@ -31,7 +31,7 @@ export default function Login() {
         router.push("/");
       }, 3000);
     } else {
-      toast("Algo deu errado, verifique email e senha", { type: "error" });
+      toast.error("Algo deu errado, verifique email e senha");
     }
   }
   return (

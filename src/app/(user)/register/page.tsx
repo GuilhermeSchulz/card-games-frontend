@@ -24,7 +24,7 @@ export default function Register() {
   async function onRegister(data: RegisterData) {
     const res = await service.register(data);
     if (res) {
-      toast("Cadastro efetuado com sucesso"),
+      toast.success("Cadastro efetuado com sucesso"),
         {
           type: "success",
         };
@@ -32,7 +32,7 @@ export default function Register() {
         router.push("/login");
       }, 3000);
     } else {
-      toast("Algo deu errado, verifique seus dados", { type: "error" });
+      toast.error("Algo deu errado, verifique seus dados");
     }
   }
   return (

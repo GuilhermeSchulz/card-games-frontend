@@ -1,3 +1,4 @@
+import { IDeck, createDeck } from "@/interfaces/deck.interfaces";
 import { LoginData, RegisterData } from "@/interfaces/user.interfaces";
 import { userStore } from "@/store/user.store";
 import { parseCookies } from "nookies";
@@ -87,6 +88,73 @@ export class Service {
       if (res.ok) {
         const user = await res.json();
         return user;
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getAllDecks() {
+    try {
+      const res = await fetch(`${this.baseURL}deck/all`, {
+        headers: { ...this.headers, Authorization: `Bearer ${this.token}` },
+      });
+      console.log(res);
+      if (res.ok) {
+        const decks = await res.json();
+        return decks;
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async getDeck(id: string) {
+    try {
+      const res = await fetch(`${this.baseURL}deck/${id}`, {
+        headers: { ...this.headers, Authorization: `Bearer ${this.token}` },
+      });
+      console.log(res);
+      if (res.ok) {
+        const deck: Promise<IDeck | null> = await res.json();
+        return deck;
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async updateDeck(deckData: createDeck, id: string) {
+    try {
+      const res = await fetch(`${this.baseURL}deck/${id}`, {
+        headers: { ...this.headers, Authorization: `Bearer ${this.token}` },
+        method: "PATCH",
+        body: JSON.stringify(deckData),
+      });
+      console.log(res);
+      if (res.ok) {
+        const deck: Promise<IDeck | null> = await res.json();
+        return deck;
+      } else {
+        return undefined;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async deleteDeck(id: string) {
+    try {
+      const res = await fetch(`${this.baseURL}deck/${id}`, {
+        headers: { ...this.headers, Authorization: `Bearer ${this.token}` },
+        method: "DELETE",
+      });
+      console.log(res);
+      if (res.ok) {
+        const response = await res.json();
+        return response;
       } else {
         return undefined;
       }

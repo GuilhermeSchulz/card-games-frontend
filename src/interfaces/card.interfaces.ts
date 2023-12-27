@@ -13,4 +13,4 @@ export const ICardReturn = z.object({
   image: z.string(),
   id: z.string(),
 });
-export type IDeck = z.infer<typeof ICardReturn>;
+export type ICard = z.infer<typeof ICardReturn>;
