@@ -23,7 +23,7 @@ export default function RootLayout({
           autoClose={3000}
           pauseOnHover={false}
           theme="dark"
-        />{" "}
+        />
         {children}
       </body>
     </html>
