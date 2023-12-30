@@ -49,5 +49,17 @@ export default class SocketHandler {
         }
       }
     });
+    scene.socket.on("cardPlayed", (cardName, socketId) => {
+      if (socketId !== scene.socket.id) {
+        scene.GameHandler.opponentHand.shift().destroy();
+        scene.DeckHandler.dealCard(
+          scene.dropZone.x - 350 + scene.dropZone.data.values.cards * 50,
+          scene.dropZone.y,
+          cardName,
+          "opponentCard"
+        );
+        scene.dropZone.data.values.cards++;
+      }
+    });
   }
 }
