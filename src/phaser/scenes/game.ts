@@ -20,6 +20,7 @@ export default class Game extends Phaser.Scene {
   opponentDeckArea: Phaser.GameObjects.Rectangle | undefined;
   UIHandler: UIHandler = new UIHandler(this);
   SocketHandler: SocketHandler = new SocketHandler(this);
+  // InteractiveHandler: InteractiveHandler = new InteractiveHandler(this);
 
   constructor() {
     super({
