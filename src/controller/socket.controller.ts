@@ -21,6 +21,7 @@ socket.on("opponent_attack_start", (data) => {
 socket.on("opponent_change_phase", (data) => {
   console.log(data.data);
 });
+// socket.on("matched")
 export const emit_attack_start = (info: any) => {
   socket.emit("attack_start", {
     ...info,
@@ -28,4 +29,7 @@ export const emit_attack_start = (info: any) => {
 };
 export const emit_change_phase = (info: any) => {
   socket.emit("change_phase", { ...info });
+};
+export const init_game = (deck: any) => {
+  socket.emit("init_game", { ...deck });
 };

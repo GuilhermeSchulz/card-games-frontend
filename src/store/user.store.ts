@@ -1,9 +1,17 @@
+import { ICard } from "@/interfaces/card.interfaces";
 import { parseCookies, setCookie } from "nookies";
 import { create } from "zustand";
 interface UserStore {
   token: string;
   setToken: (newToken: string) => void;
 }
+interface DeckStore {
+  id: string;
+  name: string;
+  card: ICard[];
+  setDeck: (deck: DeckStore) => void;
+}
+interface DeckData {}
 const cookies = parseCookies();
 export const userStore = create<UserStore>()((set) => ({
   token: cookies["@cardGame-token"] ?? "",
@@ -18,4 +26,11 @@ export const userStore = create<UserStore>()((set) => ({
         { token: newToken }
       )
     ),
+}));
+export const deckStore = create<DeckStore>()((set) => ({
+  id: "",
+  name: "",
+  card: [] as ICard[],
+  setDeck: ({ card, id, name }: DeckStore) =>
+    set(() => ({ card: card, id: id, name: name })),
 }));

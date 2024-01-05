@@ -4,8 +4,9 @@ import Game from "../scenes/game";
 export default class SocketHandler {
   constructor(scene: Game) {
     scene.socket = io("http://localhost:3003");
-    scene.socket.on("connect", () => {
+    scene.socket.on("connect", async () => {
       console.log("Connected!");
+
       scene.socket.emit("dealDeck", scene.socket.id);
     });
     scene.socket.on("firstTurn", () => {

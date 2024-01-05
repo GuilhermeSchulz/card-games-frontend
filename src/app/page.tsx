@@ -13,7 +13,6 @@ export default function Home() {
   async function getTheCards() {
     const cards = await api.getCards();
     console.log(cards);
-    
   }
   useEffect(() => {
     getTheCards();
