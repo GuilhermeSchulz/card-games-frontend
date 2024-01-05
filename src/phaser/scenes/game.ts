@@ -1,12 +1,7 @@
-import UIHandler from "../services/UiHandler";
-import CardHandler from "../services/cardHandler";
-import DeckHandler from "../services/deckHandler";
-import GameHandler from "../services/gameHandler";
+import * as Phaser from "phaser";
+
 // import {} from "../"
 export default class Game extends Phaser.Scene {
-  cardHandler: CardHandler = new CardHandler();
-  DeckHandler: DeckHandler = new DeckHandler(this);
-  GameHandler: GameHandler = new GameHandler(this);
   cardPreview: any;
   // socket: Socket = io("http://localhost:3003");
   dealCards: any;
@@ -16,7 +11,7 @@ export default class Game extends Phaser.Scene {
   playerDeckArea: Phaser.GameObjects.Rectangle | undefined;
   opponentHandArea: Phaser.GameObjects.Rectangle | undefined;
   opponentDeckArea: Phaser.GameObjects.Rectangle | undefined;
-  UIHandler: UIHandler = new UIHandler(this);
+
   // SocketHandler: SocketHandler = new SocketHandler(this);
   // InteractiveHandler: InteractiveHandler = new InteractiveHandler(this);
 
@@ -35,8 +30,6 @@ export default class Game extends Phaser.Scene {
   }
   create() {
     // this.SocketHandler = new SocketHandler(this);
-    this.UIHandler = new UIHandler(this);
-    this.UIHandler.buildUI();
     // this.InteractiveHandler = new InteractiveHandler(this);
   }
   update() {}
