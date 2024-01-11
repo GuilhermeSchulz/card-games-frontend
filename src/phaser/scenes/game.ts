@@ -2,24 +2,14 @@ import * as Phaser from "phaser";
 
 // import {} from "../"
 export default class Game extends Phaser.Scene {
-  cardPreview: any;
-  // socket: Socket = io("http://localhost:3003");
-  dealCards: any;
-  x: number = 0;
-  dropZone: any = undefined;
-  playerHandArea: Phaser.GameObjects.Rectangle | undefined;
-  playerDeckArea: Phaser.GameObjects.Rectangle | undefined;
-  opponentHandArea: Phaser.GameObjects.Rectangle | undefined;
-  opponentDeckArea: Phaser.GameObjects.Rectangle | undefined;
-
   // SocketHandler: SocketHandler = new SocketHandler(this);
   // InteractiveHandler: InteractiveHandler = new InteractiveHandler(this);
-
   constructor() {
     super({
       key: "Game",
     });
   }
+  init() {}
   preload() {
     this.load.image("cyanCardBack", "/assets/CyanCardBack.png");
     this.load.image("magentaCardBack", "/assets/MagentaCardBack.png");
@@ -29,6 +19,19 @@ export default class Game extends Phaser.Scene {
     this.load.image("magentaPing", "/assets/Magenta_Ping3x.png");
   }
   create() {
+    const img = document.createElement("img");
+    const game = new Phaser.Game();
+    const text = new Phaser.Textures.TextureManager(game);
+    const texture = new Phaser.Textures.Texture(
+      text,
+      "background",
+      img,
+      400,
+      600
+    );
+    this.add.image(0, 0, texture, "magentaPing");
+
+    // this.add.image(0, 0, "cyanPing");
     // this.SocketHandler = new SocketHandler(this);
     // this.InteractiveHandler = new InteractiveHandler(this);
   }

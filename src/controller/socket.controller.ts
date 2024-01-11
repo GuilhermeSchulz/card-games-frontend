@@ -11,8 +11,10 @@ socket.on("create-match", (arg, call) => {
 socket.on("all", (arg) => {
   console.log(arg);
 });
+let argsDefault = {};
 socket.on("matched", (...args) => {
   console.log(args);
+  argsDefault = args;
 });
 socket.on("opponent_attack_start", (data) => {
   //store.dispatch(opponent_attack_start(data.data))
@@ -31,5 +33,9 @@ export const emit_change_phase = (info: any) => {
   socket.emit("change_phase", { ...info });
 };
 export const init_game = (deck: any) => {
+  console.log(deck);
   socket.emit("init_game", { ...deck });
+};
+export const my_id_send = (id: string) => {
+  socket.emit("my_id_send", argsDefault, id);
 };
